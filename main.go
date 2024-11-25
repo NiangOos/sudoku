@@ -1,8 +1,5 @@
 /*
-
-Droit d'auteur réservé : magniang , jfreira, Halune
-Copyright tout droit réservés
-
+talents: magniang , jfreira, Halune
 */
 
 package main
@@ -14,11 +11,7 @@ import (
 	"github.com/01-edu/z01"
 )
 
-// ///////////////////////////////////////////////
-//
-//	ÉTAPE 1                               //
-//
-// //////////////////////////////////////////////
+
 // Remplissage des parametres passés dans un tableau
 func RemplissageTable(table [9][9]rune, args []string) [9][9]rune { // return un tableau de rune
 	for i := range args {
@@ -30,11 +23,6 @@ func RemplissageTable(table [9][9]rune, args []string) [9][9]rune { // return un
 	return table
 }
 
-// ///////////////////////////////////////////////
-//
-//	ÉTAPE 2                               //
-//
-// //////////////////////////////////////////////
 // pour verifier si les paramètres rentrées sont ok
 func VerifiParams(args []string) bool {
 	if len(args) != 9 { // longueur des arguments non egam a 9
@@ -62,11 +50,7 @@ func VerifiParams(args []string) bool {
 	return true // Si non tout est vrai
 }
 
-// ///////////////////////////////////////////////
-//
-//	ÉTAPE 3                               //
-//
-// //////////////////////////////////////////////
+
 // Comptage des cellules vides en l'occurence des .
 // On passe l'adresse du tableau il verifie puis renvoie un bool
 // Si on place un * devant un nom de pointeur on obtient la valeur de la variable stockeé à l'adresse indiqué par le pointeur
@@ -81,11 +65,6 @@ func CellVide(table *[9][9]rune) bool {
 	return false // sinon faux
 }
 
-// ///////////////////////////////////////////////
-//
-//	ÉTAPE   4                             //
-//
-// //////////////////////////////////////////////
 // Pour verifier si une cellule est valide
 func EstValide(table *[9][9]rune, col int, ligne int, val rune) bool {
 	// verification d'un double int
@@ -117,11 +96,7 @@ func EstValide(table *[9][9]rune, col int, ligne int, val rune) bool {
 	return true
 }
 
-/////////////////////////////////////////////////
-//      ÉTAPE   5                             //
-////////////////////////////////////////////////
-// On utilise ici le bactracking càd on revient sur nos traces pour pouvoir resoudre un probleme
-
+// backtracking algorithm
 func EstResolu(table *[9][9]rune) bool { // on passe l'adresse du tableau ça renvoie un boolen
 	if !CellVide(table) {
 		return true // si la cellule non vide donc vrai
